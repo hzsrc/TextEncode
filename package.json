@@ -16,8 +16,14 @@
     "BOM",
     "gbk"
   ],
-  "author": "hz",
-  "license": "ISC",
+  "author": {
+    "name": "James.Huang",
+    "email": "hz932@qq.com"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "bugs": {
     "url": "https://github.com/hzsrc/TextEncode/issues"
   },
