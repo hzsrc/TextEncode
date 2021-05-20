@@ -14,10 +14,18 @@ TextEncode.prototype = {
         var r = this.readText(fileName);
         return { text: r, encoding: this.encoding };
     },
-
+    readTextAsync: function (fileName, cb) {
+        var it = this;
+        fs.readFile(fileName, function (err, bytes) {
+            cb(err, it.readBytes(bytes))
+        });
+    },
     readText: function (fileName) {
-        var encoding = null;
         var bytes = fs.readFileSync(fileName);
+        return this.readBytes(bytes);
+    },
+    readBytes: function (bytes) {
+        var encoding = null;
         var bomLen = 0;
         if (bytes.length > 1) {
             if (bytes[0] == 0xFE && bytes[1] == 0xFF) //UTF-16（大端序）
@@ -108,3 +116,5 @@ TextEncode.prototype = {
         fs.appendFileSync(fileName, bytes);
     }
 }
+
+module.exports = TextEncode
