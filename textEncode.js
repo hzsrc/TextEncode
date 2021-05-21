@@ -17,7 +17,8 @@ TextEncode.prototype = {
     readTextAsync: function (fileName, cb) {
         var it = this;
         fs.readFile(fileName, function (err, bytes) {
-            cb(err, it.readBytes(bytes))
+            var tx = !err && it.readBytes(bytes)
+            cb(err, tx)
         });
     },
     readText: function (fileName) {
