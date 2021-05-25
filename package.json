@@ -1,6 +1,6 @@
 {
   "name": "text-encode",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "自动识别文本文件的编码及BOM处理，读取实际文件内容，并支持以相同格式保存回去",
   "main": "textEncode.js",
   "scripts": {
